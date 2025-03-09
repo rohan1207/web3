@@ -20,6 +20,5 @@ This repo contains code of Daniel's Home Office Portfolio. You can learn how to 
 - [LagzDesign's mouse](https://sketchfab.com/3d-models/computer-mouse-low-poly-95eb7d0363bb4db79bd50168280ea1c7)
 - [Spookyghostboo's books](https://sketchfab.com/3d-models/variety-of-books-9ecd80af3b7e4cd59efb4c141511a55b)
 - [Naira's books and magazines](https://sketchfab.com/3d-models/books-and-magazines-d0b76eada5bd495abcdfb2b20e6f7ee6)
-- [Mfb64's books](https://sketchfab.com/3d-models/vogue-magazines-bf47eea601784059aa52f2929a0c9ada)
-- [Mfb64's books](https://sketchfab.com/3d-models/vogue-magazines-bf47eea601784059aa52f2929a0c9ada)
+- [Mfb64's vogue magazines](https://sketchfab.com/3d-models/vogue-magazines-bf47eea601784059aa52f2929a0c9ada)
 - [Igrium's water bottle](https://sketchfab.com/3d-models/water-bottle-885543a7679c4026abbd6499185caf08)
