@@ -1,15 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
+import gsap from "gsap";
 import Scene from "./Scene";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 
 import { OrthographicCamera } from "@react-three/drei";
 import { useToggleRoomStore } from "../stores/toggleRoomStore";
-import gsap from "gsap";
 import { useResponsiveStore } from "../stores/useResponsiveStore";
 import { useExperienceStore } from "../stores/experienceStore";
-import CustomEase from "gsap/CustomEase";
-
-gsap.registerPlugin(CustomEase);
 
 const Experience = () => {
   const cameraRef = useRef();

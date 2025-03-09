@@ -130,7 +130,6 @@ const Scene = ({ camera, pointerRef }) => {
             ]}
           />
         </group>
-
         <GridPlanes
           ref={gridPlanesRef}
           rows={10}
