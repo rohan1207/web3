@@ -8,7 +8,7 @@ This repo contains code of Daniel's Home Office Portfolio. You can learn how to 
 
 # Updates!!!
 
-- None so far other than reformatting
+- Overlay component split into two useEffects for gsap set not triggering edge case.
 
 # Credits!!!
 
