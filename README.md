@@ -2,7 +2,7 @@
 
 **[Live site](https://daniels-architects.com/)**
 
-This repo contains code of Daniel's Home Office Portfolio. You can learn how to create a porfolio like this [here](https://youtu.be/AB6sulUMRGE)!!! Get the Blender files from my [Google Drive](https://drive.google.com/file/d/1i8vPLDbOWoC_U8DXnRTY_-FqcOF3w0SO/view?usp=sharing).
+This repo contains code of Daniel's Home Office Portfolio. You can learn how to create a porfolio like this [here](https://youtu.be/aNJN8h_QsPA)!!! Get the Blender files from my [Google Drive](https://drive.google.com/file/d/1i8vPLDbOWoC_U8DXnRTY_-FqcOF3w0SO/view?usp=sharing).
 
 ![Page screenshot](public/media/og-image.webp?raw=true "Page screenshot")
 
