@@ -19,12 +19,20 @@ const Overlay = () => {
     }
 
     if (isEntering && !isExiting) {
+      console.log("firing");
       gsap.set(overlayRef.current, { display: "block", opacity: 0 });
       gsap.to(overlayRef.current, {
         opacity: 1,
         duration: 1,
         delay: delay,
       });
+    }
+  }, [isEntering]);
+
+  useEffect(() => {
+    if (!isInitializing) {
+      setIsInitializing(true);
+      return;
     }
 
     if (isExiting && !isEntering) {
@@ -36,7 +44,7 @@ const Overlay = () => {
         },
       });
     }
-  }, [isEntering, isExiting]);
+  }, [isExiting]);
 
   const handleClick = () => {
     navigate("/");
