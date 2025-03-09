@@ -13,29 +13,22 @@ const Overlay = () => {
   const [isInitializing, setIsInitializing] = useState(false);
 
   useEffect(() => {
-    if (!isInitializing) {
-      setIsInitializing(true);
-      return;
-    }
-
-    if (isEntering && !isExiting) {
-      console.log("firing");
-      gsap.set(overlayRef.current, { display: "block", opacity: 0 });
-      gsap.to(overlayRef.current, {
-        opacity: 1,
-        duration: 1,
-        delay: delay,
-      });
+    if (isEntering) {
+      console.log("nice");
+      gsap
+        .timeline()
+        .set(overlayRef.current, { display: "block", opacity: 0 })
+        .to(overlayRef.current, {
+          opacity: 1,
+          duration: 1,
+          delay: delay,
+        });
     }
   }, [isEntering]);
 
   useEffect(() => {
-    if (!isInitializing) {
-      setIsInitializing(true);
-      return;
-    }
-
-    if (isExiting && !isEntering) {
+    if (isExiting) {
+      console.log("nice2");
       gsap.to(overlayRef.current, {
         opacity: 0,
         duration: 0.9,
