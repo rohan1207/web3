@@ -16,6 +16,7 @@ const videos = {
     video.muted = true;
     video.autoplay = true;
     video.playsInline = true;
+    video.play();
 
     const texture = new THREE.VideoTexture(video);
     texture.minFilter = THREE.LinearFilter;
@@ -42,6 +43,7 @@ const videos = {
     video.muted = true;
     video.autoplay = true;
     video.playsInline = true;
+    video.play();
 
     const texture = new THREE.VideoTexture(video);
     texture.minFilter = THREE.LinearFilter;
