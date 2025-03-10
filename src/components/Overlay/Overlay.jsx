@@ -10,8 +10,6 @@ const Overlay = () => {
 
   const { isEntering, isExiting, delay } = usePageTransitionStore();
 
-  const [isInitializing, setIsInitializing] = useState(false);
-
   useEffect(() => {
     if (isEntering) {
       gsap
