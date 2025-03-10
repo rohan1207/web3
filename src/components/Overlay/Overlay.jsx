@@ -14,7 +14,6 @@ const Overlay = () => {
 
   useEffect(() => {
     if (isEntering) {
-      console.log("nice");
       gsap
         .timeline()
         .set(overlayRef.current, { display: "block", opacity: 0 })
@@ -28,7 +27,6 @@ const Overlay = () => {
 
   useEffect(() => {
     if (isExiting) {
-      console.log("nice2");
       gsap.to(overlayRef.current, {
         opacity: 0,
         duration: 0.9,

@@ -1,4 +1,4 @@
-# Daniel's Home Office Portfolio
+# 🏠 Daniel's Home Office Portfolio 💼
 
 **[Live site](https://daniels-architects.com/)**
 
@@ -10,7 +10,13 @@ This repo contains code of Daniel's Home Office Portfolio. You can learn how to 
 
 - Overlay component split into two useEffects for gsap set not triggering edge case.
 
-# Credits!!!
+# 🪵 Resources mentioned 🪨
+
+- [Nukleos (mesh cleanup Blender addon)](https://www.youtube.com/watch?v=fTYhSvOolvk)
+- [Mesh Repair](https://extensions.blender.org/add-ons/mesh-repair-tools/)
+- [Clean Mesh Converter](https://nanomanpro.gumroad.com/l/sxerq)
+
+# Credits!!! 💖
 
 - [Image by Marc Mueller](https://www.pexels.com/photo/man-sitting-in-front-of-computer-380769/)
 - [Image by Daniel McCullough](https://unsplash.com/photos/person-drafting-on-blueprint--FPFq_trr2Y)
