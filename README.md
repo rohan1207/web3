@@ -15,6 +15,8 @@ This repo contains code of Daniel's Home Office Portfolio. You can learn how to 
 - [Nukleos (mesh cleanup Blender addon)](https://www.youtube.com/watch?v=fTYhSvOolvk)
 - [Mesh Repair](https://extensions.blender.org/add-ons/mesh-repair-tools/)
 - [Clean Mesh Converter](https://nanomanpro.gumroad.com/l/sxerq)
+- [UVPACKMASTER3](https://uvpackmaster.com/)
+- [SimpleBake](https://blendermarket.com/products/simplebake---simple-pbr-and-other-baking-in-blender-2)
 
 # Credits!!! 💖
 
