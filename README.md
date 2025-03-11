@@ -9,6 +9,7 @@ This repo contains code of Daniel's Home Office Portfolio. You can learn how to 
 # Updates!!!
 
 - Overlay component split into two useEffects for gsap set not triggering edge case.
+- Switched video texture logic to useVideoTexture from React Three Drei library.
 
 # 🪵 Resources mentioned 🪨
 

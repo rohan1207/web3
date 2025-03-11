@@ -1,19 +1,8 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import { useGLTFWithKTX2 } from "../../utils/useGLTFWithKTX2";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
-import videos from "../../utils/videoTextures";
 import * as THREE from "three";
-
-let sharedMacScreenTexture;
-if (!window._macScreenTexture) {
-  sharedMacScreenTexture = new THREE.TextureLoader().load(
-    "/images/macscreen.webp"
-  );
-  sharedMacScreenTexture.encoding = THREE.sRGBEncoding;
-  window._macScreenTexture = sharedMacScreenTexture;
-} else {
-  sharedMacScreenTexture = window._macScreenTexture;
-}
+import { useVideoTexture } from "@react-three/drei";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTFWithKTX2(
@@ -24,26 +13,18 @@ export default function Model(props) {
   const macScreenRef = useRef();
   const computerScreenRef = useRef();
 
-  const macScreenMaterial = useMemo(() => {
-    return new THREE.MeshBasicMaterial({
-      color: "#f6f6f6",
-      map: sharedMacScreenTexture,
-    });
-  }, []);
+  const videoTexture = useVideoTexture("/videos/devwork.mp4");
 
-  const computerScreenMaterial = useMemo(() => {
-    return new THREE.MeshBasicMaterial({
-      color: "#8a8a8a",
-      map: videos.devWork.texture,
-    });
-  }, []);
+  const computerScreenMaterial = new THREE.MeshBasicMaterial({
+    map: videoTexture,
+  });
 
   return (
     <group {...props} dispose={null}>
       <mesh
         ref={macScreenRef}
         geometry={nodes.Mac_Screen.geometry}
-        material={macScreenMaterial}
+        material={computerScreenMaterial}
         position={[-0.861, 0.815, 0.684]}
         rotation={[0, 0.523, 0]}
       />
