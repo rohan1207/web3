@@ -25,20 +25,20 @@ export default function Model(props) {
         ref={macScreenRef}
         geometry={nodes.Mac_Screen.geometry}
         material={computerScreenMaterial}
-        position={[-0.861, 0.815, 0.684]}
+        position={[-0.861, 0.815 - 0.02, 0.684]}
         rotation={[0, 0.523, 0]}
       />
       <mesh
         ref={computerScreenRef}
         geometry={nodes.Computer_Screen.geometry}
         material={computerScreenMaterial}
-        position={[-0.302, 0.955, 0.647]}
+        position={[-0.302, 0.955 - 0.02, 0.647]}
         rotation={[0, -0.053, 0]}
       />
       <mesh
         geometry={nodes.First_Baked.geometry}
         material={newMaterials.first_real_realfdsa_Baked}
-        position={[-0.231, -0.14, 0.652]}
+        position={[-0.231, -0.14 - 0.02, 0.652]}
         rotation={[Math.PI, 0, Math.PI]}
       />
     </group>

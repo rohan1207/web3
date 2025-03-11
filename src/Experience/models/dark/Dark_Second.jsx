@@ -19,7 +19,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Second_Baked.geometry}
         material={newMaterials.Second_Real_Texture_Set_Baked}
-        position={[0.053, 0, 0.341]}
+        position={[0.053, 0 - 0.02, 0.341]}
         rotation={[Math.PI, 0, Math.PI]}
       />
     </group>

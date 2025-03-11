@@ -19,13 +19,13 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Fourth_Baked.geometry}
         material={newMaterials.Fourth_Real_Real_Texture_Set_Baked}
-        position={[-0.356, 0, 1.362]}
+        position={[-0.356, 0 - 0.02, 1.362]}
         rotation={[Math.PI, 0, Math.PI]}
       />
       <mesh
         geometry={nodes.Chair_Top_Fourth_Baked.geometry}
         material={newMaterials.Fourth_Real_Real_Texture_Set_Baked}
-        position={[-0.373, 0.735, 1.304]}
+        position={[-0.373, 0.735 - 0.02, 1.304]}
         rotation={[Math.PI, -0.121, Math.PI]}
       />
     </group>

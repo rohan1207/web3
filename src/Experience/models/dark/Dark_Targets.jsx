@@ -41,7 +41,7 @@ export default function Model(props) {
         geometry={nodes.About_Hitbox.geometry}
         material={nodes.About_Hitbox.material}
         visible={false}
-        position={[0.679, 1.571, -1.368]}
+        position={[0.679, 1.571 - 0.02, -1.368]}
         onPointerOver={() => {
           onHover("About_Hitbox", true);
           document.body.style.cursor = "pointer";
@@ -59,13 +59,13 @@ export default function Model(props) {
         geometry={nodes.About_Hitbox_Anim.geometry}
         material={whiteMaterial}
         scale={[0, 0, 0]}
-        position={[0.679, 1.571, -1.368]}
+        position={[0.679, 1.571 - 0.02, -1.368]}
       />
       <mesh
         geometry={nodes.Dev_Work_Hitbox.geometry}
         material={nodes.Dev_Work_Hitbox.material}
         visible={false}
-        position={[-0.457, 0.597, 1.021]}
+        position={[-0.457, 0.597 - 0.02, 1.021]}
         onPointerOver={() => {
           onHover("Dev_Work_Hitbox", true);
           document.body.style.cursor = "pointer";
