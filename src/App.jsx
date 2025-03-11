@@ -19,7 +19,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", updateDimensions);
     };
-  });
+  }, []);
 
   return (
     <>
