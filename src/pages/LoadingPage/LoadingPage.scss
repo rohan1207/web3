@@ -20,18 +20,10 @@
 
 .background-top-half {
   top: 0;
-
-  &.revealed {
-    transform: translateY(-100%);
-  }
 }
 
 .background-bottom-half {
   top: 50%;
-
-  &.revealed {
-    transform: translateY(100%);
-  }
 }
 
 .loading-screen-info-container {
@@ -63,33 +55,6 @@
 
   @media (max-width: 390px) {
     font-size: 24px;
-  }
-}
-
-.instructions-container {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 100%;
-  display: flex;
-  place-content: center;
-  justify-content: center;
-  align-items: center;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 24px;
-
-  @media (max-width: 480px) {
-    top: 40%;
-    font-size: 16px;
-  }
-
-  @media (max-width: 390px) {
-    font-size: 16px;
-  }
-
-  &.revealed {
-    display: none;
   }
 }
 
