@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { useGLTFWithKTX2 } from "../../utils/useGLTFWithKTX2";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
 import * as THREE from "three";
-import { useVideoTexture } from "@react-three/drei";
+import videos from "../../utils/videoTextures";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTFWithKTX2(
@@ -13,11 +13,12 @@ export default function Model(props) {
   const macScreenRef = useRef();
   const computerScreenRef = useRef();
 
-  const videoTexture = useVideoTexture("/videos/devwork.mp4");
-
-  const computerScreenMaterial = new THREE.MeshBasicMaterial({
-    map: videoTexture,
-  });
+  const computerScreenMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: "#8a8a8a",
+      map: videos.devWork.texture,
+    });
+  }, []);
 
   return (
     <group {...props} dispose={null}>

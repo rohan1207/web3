@@ -3,6 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
 import * as THREE from "three";
 import { useVideoTexture } from "@react-three/drei";
+import videos from "../../utils/videoTextures";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/Light Room/Light_First.glb");
@@ -11,11 +12,12 @@ export default function Model(props) {
   const desktopScreenRef = useRef();
   const iPhoneScreenRef = useRef();
 
-  const videoTexture = useVideoTexture("/videos/designwork.mp4");
-
-  const computerScreenMaterial = new THREE.MeshBasicMaterial({
-    map: videoTexture,
-  });
+  const computerScreenMaterial = useMemo(() => {
+    return new THREE.MeshBasicMaterial({
+      color: "#f6f6f6",
+      map: videos.designWork.texture,
+    });
+  }, []);
 
   return (
     <group {...props} dispose={null}>
