@@ -21,6 +21,7 @@ const videos = {
     const texture = new THREE.VideoTexture(video);
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
+    texture.colorSpace = THREE.SRGBColorSpace;
 
     window._designWorkVideo = video;
     window._designWorkTexture = texture;
@@ -48,6 +49,7 @@ const videos = {
     const texture = new THREE.VideoTexture(video);
     texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
+    texture.colorSpace = THREE.SRGBColorSpace;
 
     window._devWorkVideo = video;
     window._devWorkTexture = texture;
