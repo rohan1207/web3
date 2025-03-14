@@ -9,7 +9,7 @@ This repo contains code of Daniel's Home Office Portfolio. You can learn how to 
 # Updates!!!
 
 - Overlay component split into two useEffects for gsap set not triggering edge case.
-- Switched video texture logic to useVideoTexture from React Three Drei library.
+- Updated video texture to useVideoTexture from React Three Drei but still encountered duplicate loads and switched to global window object storage. Kind of a hack but it works LOL. Will update if I figure out issue.
 
 # 🪵 Resources mentioned 🪨
 
