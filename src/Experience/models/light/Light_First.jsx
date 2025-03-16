@@ -2,7 +2,6 @@ import React, { useRef, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
 import * as THREE from "three";
-import { useVideoTexture } from "@react-three/drei";
 import videos from "../../utils/videoTextures";
 
 export default function Model(props) {

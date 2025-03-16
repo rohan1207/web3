@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useRef, useMemo } from "react";
 import { useGLTFWithKTX2 } from "../../utils/useGLTFWithKTX2";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
 import * as THREE from "three";
