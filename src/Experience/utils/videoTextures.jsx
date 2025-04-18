@@ -1,6 +1,7 @@
 import * as THREE from "three";
 
 function createVideoAndTexture(src) {
+  console.log(`PROD: Creating video element for: ${src}`); // Add logging distinct for prod build if possible
   const video = document.createElement("video");
   video.src = src;
   video.crossOrigin = "anonymous";
@@ -8,7 +9,8 @@ function createVideoAndTexture(src) {
   video.muted = true;
   video.autoplay = true;
   video.playsInline = true;
-  video.play().catch((e) => console.warn(`Autoplay prevented for ${src}:`, e));
+  // Consider removing video.play() here too, let VideoTexture handle it
+  video.play().catch((e) => console.warn(`Autoplay prevented for ${src}:`, e)); // Add catch for browsers restricting autoplay
 
   const texture = new THREE.VideoTexture(video);
   texture.minFilter = THREE.LinearFilter;
@@ -18,6 +20,8 @@ function createVideoAndTexture(src) {
   return { element: video, texture };
 }
 
+console.log("PROD: videoTextures.js module execution START");
+
 const designWork = createVideoAndTexture("/videos/designwork.mp4");
 const devWork = createVideoAndTexture("/videos/devwork.mp4");
 
@@ -25,5 +29,7 @@ const videos = {
   designWork,
   devWork,
 };
+
+console.log("PROD: videoTextures.js module execution END");
 
 export default videos;
