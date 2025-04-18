@@ -9,7 +9,7 @@ This repo contains code of Daniel's [Award-Winning](https://www.cssdesignawards.
 # Updates!!!
 
 - Overlay component split into two useEffects for gsap set not triggering edge case.
-- Updated video texture to useVideoTexture from React Three Drei but still encountered duplicate loads and switched to global window object storage. Kind of a hack but it works LOL. Will update if I figure out issue.
+- Updated video texture to useVideoTexture from React Three Drei.
 
 # 🪵 Resources mentioned 🪨
 
