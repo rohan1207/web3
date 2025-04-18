@@ -8,7 +8,7 @@ function createVideoAndTexture(src) {
   video.muted = true;
   video.autoplay = true;
   video.playsInline = true;
-  video.play().catch((e) => console.warn(`Autoplay prevented for ${src}:`, e)); // Add catch for browsers restricting autoplay
+  video.play().catch((e) => console.warn(`Autoplay prevented for ${src}:`, e));
 
   const texture = new THREE.VideoTexture(video);
   texture.minFilter = THREE.LinearFilter;
