@@ -19,7 +19,6 @@ const LoadingScreen = () => {
   useEffect(() => {
     if (progress === 100 && !onlyOnce) {
       setOnlyOnce(true);
-      console.log("firing");
       setIsExperienceReady();
 
       const tl = gsap.timeline();

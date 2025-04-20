@@ -39,7 +39,6 @@ const Experience = () => {
 
   useEffect(() => {
     if (!cameraRef.current) return;
-    console.log("hmm");
 
     const targetPosition = isDarkRoom
       ? cameraPositions.dark.position

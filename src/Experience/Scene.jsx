@@ -19,7 +19,7 @@ import gsap from "gsap";
 
 import { useFrame } from "@react-three/fiber";
 
-const Scene = ({ pointerRef, isExperienceReady }) => {
+const Scene = ({ pointerRef }) => {
   const darkGroupRef = useRef();
   const lightGroupRef = useRef();
   const gridPlanesRef = useRef();
