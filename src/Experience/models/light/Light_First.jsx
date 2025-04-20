@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF, useVideoTexture } from "@react-three/drei";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
-import videos from "../../utils/videoTextures";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/Light Room/Light_First.glb");

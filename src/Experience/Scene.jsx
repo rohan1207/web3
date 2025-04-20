@@ -41,7 +41,6 @@ const Scene = ({ pointerRef }) => {
       x: targetPosition.x,
       y: targetPosition.y,
       z: targetPosition.z,
-      delay: 1,
     });
   }, [isExperienceReady]);
 
