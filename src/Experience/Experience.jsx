@@ -39,6 +39,7 @@ const Experience = () => {
 
   useEffect(() => {
     if (!cameraRef.current) return;
+    console.log("hmm");
 
     const targetPosition = isDarkRoom
       ? cameraPositions.dark.position
@@ -142,7 +143,11 @@ const Experience = () => {
           zoom={zoomValues.default}
         />
         {/* <OrbitControls /> */}
-        <Scene camera={cameraRef} pointerRef={pointerRef} />
+        <Scene
+          camera={cameraRef}
+          pointerRef={pointerRef}
+          isExperienceReady={isExperienceReady}
+        />
       </Canvas>
     </>
   );

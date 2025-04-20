@@ -14,13 +14,12 @@ import LightTargets from "./models/light/Light_Targets";
 import GridPlanes from "./components/GridPlanes";
 
 import { useToggleRoomStore } from "../stores/toggleRoomStore";
-import { useExperienceStore } from "../stores/experienceStore";
 
 import gsap from "gsap";
 
 import { useFrame } from "@react-three/fiber";
 
-const Scene = ({ pointerRef }) => {
+const Scene = ({ pointerRef, isExperienceReady }) => {
   const darkGroupRef = useRef();
   const lightGroupRef = useRef();
   const gridPlanesRef = useRef();
@@ -28,21 +27,6 @@ const Scene = ({ pointerRef }) => {
   const lightRoomGroupPosition = new THREE.Vector3(24.79, 0, 0.173);
   const groupRotationRef = useRef(0);
   const { isDarkRoom } = useToggleRoomStore();
-  const { isExperienceReady } = useExperienceStore();
-
-  useEffect(() => {
-    if (!gridPlanesRef.current) return;
-
-    const targetPosition = isDarkRoom
-      ? darkRoomGroupPosition
-      : lightRoomGroupPosition;
-
-    gsap.set(gridPlanesRef.current.position, {
-      x: targetPosition.x,
-      y: targetPosition.y,
-      z: targetPosition.z,
-    });
-  }, [isExperienceReady]);
 
   useEffect(() => {
     if (!gridPlanesRef.current) return;
@@ -132,6 +116,19 @@ const Scene = ({ pointerRef }) => {
           />
         </group>
         <GridPlanes
+          position={
+            isDarkRoom
+              ? [
+                  darkRoomGroupPosition.x,
+                  darkRoomGroupPosition.y,
+                  darkRoomGroupPosition.z,
+                ]
+              : [
+                  lightRoomGroupPosition.x,
+                  lightRoomGroupPosition.y,
+                  lightRoomGroupPosition.z,
+                ]
+          }
           ref={gridPlanesRef}
           rows={10}
           columns={10}

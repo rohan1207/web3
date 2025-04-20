@@ -71,6 +71,7 @@ const Plane = ({ position, planeDepth, planeWidth }) => {
 };
 
 const GridPlanes = ({
+  position,
   rows,
   columns,
   planeWidth,
@@ -104,7 +105,9 @@ const GridPlanes = ({
 
   return (
     <>
-      <group ref={ref}>{planes}</group>
+      <group position={position} ref={ref}>
+        {planes}
+      </group>
     </>
   );
 };
