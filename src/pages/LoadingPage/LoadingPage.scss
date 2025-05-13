@@ -1,82 +1,127 @@
 @use "../../index.scss" as styles;
 
 .loading-screen {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  overflow: hidden;
-  z-index: 100000;
-}
-
-.background-top-half,
-.background-bottom-half {
-  position: absolute;
-  height: 50%;
-  width: 100%;
-  background-color: #060606;
-}
-
-.background-top-half {
-  top: 0;
-}
-
-.background-bottom-half {
-  top: 50%;
-}
-
-.loading-screen-info-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  z-index: 9999;
   display: flex;
-  flex-direction: column;
-  place-content: center;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-}
 
-.intro-message-container {
-  position: absolute;
-  top: 53%;
-  left: 50%;
-  width: 100%;
-  display: flex;
-  place-content: center;
-  justify-content: center;
-  align-items: center;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 36px;
-  opacity: 0;
-  font-weight: lighter;
+  .background-top-half,
+  .background-bottom-half {
+    position: fixed;
+    width: 100%;
+    height: 50vh;
+    background-color: #000000;
+    z-index: 10;
+  }
 
-  @media (max-width: 390px) {
-    font-size: 24px;
+  .background-top-half {
+    top: 0;
+  }
+
+  .background-bottom-half {
+    bottom: 0;
+  }
+
+  .loading-screen-info-container {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+
+    .intro-message-container {
+      color: white;
+      font-size: 24px;
+      font-weight: 500;
+      opacity: 0;
+      text-align: center;
+    }
+
+    .loader-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .architectural-loader {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loader-element {
+        position: absolute;
+        background-color: white;
+
+        &:nth-child(1) {
+          width: 60px;
+          height: 2px;
+          transform-origin: center;
+        }
+
+        &:nth-child(2) {
+          width: 2px;
+          height: 60px;
+          transform-origin: center;
+        }
+
+        &:nth-child(3) {
+          width: 40px;
+          height: 40px;
+          border: 2px solid white;
+          background: transparent;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    .loader-percentage {
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
   }
 }
 
-.loading-bar-container {
-  width: 100%;
-  height: 1px;
-}
+@media (max-width: 768px) {
+  .loading-screen {
+    .loading-screen-info-container {
+      gap: 32px;
 
-.loading-bar {
-  width: 0;
-  height: 100%;
-  background-color: #ffffff;
-}
+      .intro-message-container {
+        font-size: 20px;
+      }
 
-.percentage {
-  font-size: 12px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  justify-content: center;
-  align-items: center;
-  margin-top: 24px;
-  font-weight: light;
+      .architectural-loader {
+        width: 50px;
+        height: 50px;
+
+        .loader-element {
+          &:nth-child(1) {
+            width: 50px;
+          }
+
+          &:nth-child(2) {
+            height: 50px;
+          }
+
+          &:nth-child(3) {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+    }
+  }
 }

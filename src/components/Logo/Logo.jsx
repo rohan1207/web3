@@ -28,7 +28,7 @@ const Logo = () => {
   return (
     <>
       <div ref={logoRef} className={logoClassNames}>
-        TheSocialKollab
+        <img src="/images/logo.png" alt="TheSocialKollab" />
       </div>
     </>
   );

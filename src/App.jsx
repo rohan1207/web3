@@ -9,9 +9,12 @@ import Menu from "./components/Menu/Menu";
 import Router from "./routes/Router";
 import Overlay from "./components/Overlay/Overlay";
 import Logo from "./components/Logo/Logo";
+import FloatingCard from "./components/FloatingCard/FloatingCard";
+import { useFloatingCardStore } from "./stores/floatingCardStore";
 
 function App() {
   const { updateDimensions } = useResponsiveStore();
+  const { isVisible, position, text } = useFloatingCardStore();
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
@@ -30,6 +33,7 @@ function App() {
       <Overlay />
       <Router />
       <Experience />
+      <FloatingCard text={text} position={position} visible={isVisible} />
     </>
   );
 }

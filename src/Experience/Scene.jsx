@@ -23,10 +23,27 @@ const Scene = ({ pointerRef }) => {
   const darkGroupRef = useRef();
   const lightGroupRef = useRef();
   const gridPlanesRef = useRef();
+  const ambientLightRef = useRef();
+
   const darkRoomGroupPosition = new THREE.Vector3(0, 0, 0);
   const lightRoomGroupPosition = new THREE.Vector3(24.79, 0, 0.173);
   const groupRotationRef = useRef(0);
   const { isDarkRoom } = useToggleRoomStore();
+
+  useEffect(() => {
+    if (!ambientLightRef.current) return;
+
+    const t1 = gsap.timeline();
+
+    // Flash effect
+    t1.to(ambientLightRef.current, {
+      intensity: isDarkRoom ? 0.1 : 2.5,
+      duration: 0.2,
+    }).to(ambientLightRef.current, {
+      intensity: isDarkRoom ? 0.5 : 1.5,
+      duration: 0.3,
+    });
+  }, [isDarkRoom]);
 
   useEffect(() => {
     if (!gridPlanesRef.current) return;
@@ -70,6 +87,11 @@ const Scene = ({ pointerRef }) => {
   return (
     <>
       <Suspense>
+        <ambientLight
+          ref={ambientLightRef}
+          intensity={isDarkRoom ? 0.5 : 1.5}
+          color={isDarkRoom ? "#ffffff" : "#ffffff"}
+        />
         <group ref={darkGroupRef}>
           <DarkRoomFirst />
           <DarkRoomSecond />

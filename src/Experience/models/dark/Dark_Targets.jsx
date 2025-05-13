@@ -8,11 +8,15 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
 import { useNavigate } from "react-router";
+import { useToggleRoomStore } from "../../../stores/toggleRoomStore";
+import { useFloatingCardStore } from "../../../stores/floatingCardStore";
 
 export default function Model(props) {
   let navigate = useNavigate();
-
   const { nodes } = useGLTF("/models/Dark Room/Dark_Targets.glb");
+  const setFloatingCard = useFloatingCardStore(
+    (state) => state.setFloatingCard
+  );
 
   const whiteMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
@@ -24,8 +28,9 @@ export default function Model(props) {
     Dev_Work_Hitbox: { ref: devWorkAnimRef },
   };
 
+  const { isDarkRoom, setDarkRoom, isTransitioning } = useToggleRoomStore();
   //Handle Hover
-  const onHover = (key, isHovering) => {
+  const onHover = (key, isHovering, event) => {
     const animObject = animationPairs[key];
     gsap.to(animObject.ref.current.scale, {
       x: isHovering ? 1 : 0,
@@ -33,6 +38,24 @@ export default function Model(props) {
       z: isHovering ? 1 : 0,
       duration: 0.5,
     });
+
+    if (key === "About_Hitbox") {
+      if (isHovering && event) {
+        setFloatingCard(true, [event.clientX, event.clientY - 40], "About Us");
+      } else {
+        setFloatingCard(false, [0, 0], "");
+      }
+    } else if (key === "Dev_Work_Hitbox") {
+      if (isHovering && event) {
+        setFloatingCard(
+          true,
+          [event.clientX, event.clientY - 40],
+          "Our Projects"
+        );
+      } else {
+        setFloatingCard(false, [0, 0], "");
+      }
+    }
   };
 
   return (
@@ -42,12 +65,12 @@ export default function Model(props) {
         material={nodes.About_Hitbox.material}
         visible={false}
         position={[0.679, 1.571 - 0.02, -1.368]}
-        onPointerOver={() => {
-          onHover("About_Hitbox", true);
+        onPointerOver={(e) => {
+          onHover("About_Hitbox", true, e);
           document.body.style.cursor = "pointer";
         }}
-        onPointerOut={() => {
-          onHover("About_Hitbox", false);
+        onPointerOut={(e) => {
+          onHover("About_Hitbox", false, e);
           document.body.style.cursor = "auto";
         }}
         onClick={() => {
@@ -66,16 +89,22 @@ export default function Model(props) {
         material={nodes.Dev_Work_Hitbox.material}
         visible={false}
         position={[-0.457, 0.597 - 0.02, 1.021]}
-        onPointerOver={() => {
-          onHover("Dev_Work_Hitbox", true);
+        onPointerOver={(e) => {
+          onHover("Dev_Work_Hitbox", true, e);
           document.body.style.cursor = "pointer";
         }}
-        onPointerOut={() => {
-          onHover("Dev_Work_Hitbox", false);
+        onPointerOut={(e) => {
+          onHover("Dev_Work_Hitbox", false, e);
           document.body.style.cursor = "auto";
         }}
-        onClick={() => {
-          navigate("/dev-work");
+        onClick={(e) => {
+          if (e.shiftKey) {
+            if (!isTransitioning) {
+              setDarkRoom(!isDarkRoom);
+            }
+          } else {
+            navigate("/dev-work");
+          }
         }}
       />
       <mesh
