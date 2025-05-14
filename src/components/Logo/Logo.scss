@@ -1,8 +1,8 @@
 .logo {
  
     position: fixed;
-    top: -3%;
-    left: -50px;
+    top: 0%;
+    left: -8px;
     z-index: 40;
     border: none;
     outline: none;
@@ -25,4 +25,10 @@
     left: 32px;
     top: 32px;
   }
+}
+.logo img {
+
+  height: 83px;
+    width: 157px;
+
 }

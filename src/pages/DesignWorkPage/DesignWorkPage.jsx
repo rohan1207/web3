@@ -1,25 +1,143 @@
-import React from "react";
-import Page from "../Page";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 import "./DesignWorkPage.scss";
+import BannerSection from "../../components/BannerSection/BannerSection";
+import BentoGrid from "../../components/BentoGrid/BentoGrid";
+import { useToggleRoomStore } from "../../stores/toggleRoomStore";
+import Footer from "../../components/footer/Footer";
 
 const DesignWorkPage = () => {
+  const navigate = useNavigate();
+  const { isDarkRoom, setDarkRoom } = useToggleRoomStore();
+
+  useEffect(() => {
+    setDarkRoom(true);
+  }, []);
+
+  const projects = [
+    {
+      id: 1,
+      title: "Azure Heights Tower",
+      description: "Commercial | Singapore | 2024",
+      image: "/images/tower.jpg",
+      size: "large",
+      tags: ["Commercial", "Architecture", "Modern"],
+    },
+    {
+      id: 2,
+      title: "Horizon Residences",
+      description: "Residential | Miami | 2024",
+      image: "/images/residence.jpeg",
+      size: "medium",
+      tags: ["Residential", "Luxury", "Coastal"],
+    },
+    {
+      id: 3,
+      title: "Echo Museum",
+      description: "Cultural | New York | 2024",
+      image: "/images/museum.jpg",
+      size: "medium",
+      tags: ["Cultural", "Museum", "Contemporary"],
+    },
+    {
+      id: 4,
+      title: "Terraform Campus",
+      description: "Educational | Toronto | 2024",
+      image: "/images/campus.jpeg",
+      size: "medium",
+      tags: ["Educational", "Campus", "Sustainable"],
+    },
+    {
+      id: 5,
+      title: "Solstice Pavilion",
+      description: "Public Space | Vancouver | 2024",
+      image: "/images/pavilion.jpg",
+      size: "medium",
+      tags: ["Public", "Pavilion", "Urban"],
+    },
+  ];
+
+  const handleBack = () => {
+    navigate("/");
+  };
+
   return (
-    <>
-      <Page
-        requireDarkRoom={false}
-        panelContent={{
-          title: "Design Work",
-          quote: "The best design is more than beautiful, it's meaningful.",
-          content: [
-            "At Daniels, design is more than just an aesthetic pursuit—it’s an experiential dialogue between form and feeling. Our ethos revolves around the interplay of light, materiality, and negative space, curating environments that breathe, evolve, and evoke emotion. With a refined design language rooted in simplicity and precision, we specialize in architectural renderings, interactive visualizations, and immersive digital experiences that allow architects to explore their designs before they are built. We approach every project with the belief that space is not just occupied but experienced and that even the subtlest design elements can shape how one feels within a structure.",
-            "By leveraging the latest in 3D modeling, real-time rendering, and computational design, we craft digital narratives that articulate architectural intent with clarity. Our work spans high-fidelity concept visualizations, virtual walkthroughs, and parametric design solutions—helping architects refine their visions with both efficiency and artistry. For us, technology should serve design, not overshadow it. By carefully integrating material textures, natural lighting simulations, and spatial acoustics, we create immersive environments that resonate with the human senses.",
-            "Our signature aesthetic blends modernist restraint with poetic sensitivity, balancing stark minimalism with warmth and tactility. Whether working on a monolithic concrete retreat or an airy glass pavilion, we ensure that each visualization honors the integrity of the space—allowing architects to refine not just how their buildings will look, but how they will feel. This commitment to spatial awareness, emotion-driven design, and digital craftsmanship has made us an invaluable partner in the world of contemporary architecture.",
-            "At our core, we believe great architecture is not just about structures—it’s about the moments they create. Through a symphony of design principles, digital precision, and artistic intuition, we continue to push the boundaries of architectural storytelling, helping architects not just imagine spaces—but experience them before they exist.",
-          ],
-        }}
-        imageSrc={"/images/design.webp"}
-      />
-    </>
+    <motion.div
+      className={`dev-work-page${!isDarkRoom ? " light" : ""}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.button
+        className="back-button"
+        onClick={handleBack}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </motion.button>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <BannerSection
+          title="Our Projects"
+          subtitle="Explore our Excellent work"
+          backgroundImage="/images/projects.jpg"
+        />
+      </motion.div>
+
+      <motion.div
+        className="dev-work-page-content"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
+        <div className="content-wrapper">
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            Crafting Tomorrow's Spaces
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            Every structure tells a story—of space, purpose, and imagination. At{" "}
+            <span className="highlight">TheSocialKollab</span>, our projects are
+            born from bold concepts, shaped by functionality, and finished with
+            timeless detail. Explore our curated selection of residential,
+            commercial, and bespoke architectural works that speak to our
+            passion for form and the future.
+          </motion.p>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <BentoGrid projects={projects} />
+      </motion.div>
+
+      <Footer />
+    </motion.div>
   );
 };
 
