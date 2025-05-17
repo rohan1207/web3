@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import "./ContactUS.scss";
+import "./Contactus.scss";
 import { useToggleRoomStore } from "../../stores/toggleRoomStore";
 
 const ContactUs = () => {
