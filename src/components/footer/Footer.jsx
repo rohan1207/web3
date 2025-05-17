@@ -1,14 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "./Footer.scss";
 
 const Footer = () => {
   const socialLinks = [
-    { name: "Instagram", icon: "ri-instagram-line", url: "#" },
+    { name: "Instagram", icon: "ri-instagram-line", url: "https://www.instagram.com/thesocialkollab/" },
     { name: "LinkedIn", icon: "ri-linkedin-fill", url: "#" },
     { name: "Twitter", icon: "ri-twitter-x-line", url: "#" },
-   
   ];
 
   const quickLinks = [
@@ -26,11 +25,11 @@ const Footer = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="footer-content">
-        <div className="footer-section brand-section">
-          <h3 className="footer-logo">TheSocialKollab</h3>
-          <p className="footer-tagline">Crafting Tomorrow's Spaces</p>
+        <div className="logo">
+          <img src="/images/logo.png" alt="Logo"  />
+        
         </div>
-
+  <p className="footer-tagline">konnect | kreate | kollaborate</p>
         <div className="footer-section links-section">
           <h4>Quick Links</h4>
           <ul>
@@ -48,9 +47,9 @@ const Footer = () => {
 
         <div className="footer-section contact-section">
           <h4>Contact</h4>
-          <p>New York, NY 10012</p>
+          <p>Katraj, Pune</p>
           <p>info@socialkollab.com</p>
-          <p>+1 234 567 8900</p>
+          <p>+91 86000 73706</p>
         </div>
 
         <div className="footer-section social-section">

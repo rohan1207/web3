@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
+
 import { SwitchTransition, Transition } from "react-transition-group";
 import { useResponsiveStore } from "../stores/useResponsiveStore";
 import { useToggleRoomStore } from "../stores/toggleRoomStore";
@@ -10,7 +11,7 @@ import "./Transition.scss";
 const TransitionComponent = ({ children }) => {
   const nodeRef = useRef(null);
 
-  const delay = 3.5;
+  const delay = 2;
 
   const location = useLocation();
 
@@ -69,7 +70,9 @@ const TransitionComponent = ({ children }) => {
           let requireDarkRoom = false;
           if (
             location.pathname === "/about" ||
-            location.pathname === "/dev-work"
+            location.pathname === "/dev-work"||
+            location.pathname === "/design-work"||
+            location.pathname === "/contact"
           ) {
             requireDarkRoom = true;
           }

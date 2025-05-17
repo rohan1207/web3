@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "./RoomToggleButton.scss";
 import { useToggleRoomStore } from "../../../stores/toggleRoomStore";
 import gsap from "gsap";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
 
 const RoomToggleButton = () => {
@@ -18,7 +18,7 @@ const RoomToggleButton = () => {
       // Animate bulb glow
       gsap.to(bulbRef.current, {
         filter: isDarkRoom ? "brightness(1.5)" : "brightness(0.7)",
-        duration: 0.3
+        duration: 0.3,
       });
     }
   };
@@ -49,9 +49,9 @@ const RoomToggleButton = () => {
         onClick={handleToggle}
         title={isDarkRoom ? "Switch to light mode" : "Switch to dark mode"}
       >
-        <i 
+        <i
           ref={bulbRef}
-          className={`ri-lightbulb-${isDarkRoom ? 'line' : 'fill'}`}
+          className={`ri-lightbulb-${isDarkRoom ? "line" : "fill"}`}
         ></i>
       </button>
     </>

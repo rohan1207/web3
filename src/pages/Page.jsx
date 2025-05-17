@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "./Page.scss";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useToggleRoomStore } from "../stores/toggleRoomStore";
 import { usePageTransitionStore } from "../stores/pageTransitionStore";
 import gsap from "gsap";

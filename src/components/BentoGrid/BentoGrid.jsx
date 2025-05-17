@@ -1,7 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./BentoGrid.scss";
 
 const BentoGrid = ({ projects }) => {
+  const navigate = useNavigate();
+  const handleExplore = (project) => {
+    const projectId = project.title.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/project/${projectId}`, { replace: false });
+  };
+
   return (
     <div className="bento-grid">
       {projects.map((project, index) => (
@@ -22,6 +31,14 @@ const BentoGrid = ({ projects }) => {
                 </span>
               ))}
             </div>
+            <motion.button
+              className="explore-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleExplore(project)}
+            >
+              Explore <i className="ri-arrow-right-line"></i>
+            </motion.button>
           </div>
         </div>
       ))}

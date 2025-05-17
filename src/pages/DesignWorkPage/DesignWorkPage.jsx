@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./DesignWorkPage.scss";
 import BannerSection from "../../components/BannerSection/BannerSection";
@@ -18,35 +18,37 @@ const DesignWorkPage = () => {
   const projects = [
     {
       id: 1,
-      title: "Azure Heights Tower",
-      description: "Commercial | Singapore | 2024",
+      title: "Static Architect Website",
+      description: "Azure Heights Tower",
       image: "/images/tower.jpg",
       size: "large",
       tags: ["Commercial", "Architecture", "Modern"],
+      type:"Architecture"
     },
     {
       id: 2,
-      title: "Horizon Residences",
-      description: "Residential | Miami | 2024",
+      title: "3D Architect Website",
+      description: "Horizon Architects",
       image: "/images/residence.jpeg",
       size: "medium",
       tags: ["Residential", "Luxury", "Coastal"],
+      type:"Architecture"
     },
-    {
+     {
       id: 3,
-      title: "Echo Museum",
-      description: "Cultural | New York | 2024",
-      image: "/images/museum.jpg",
-      size: "medium",
-      tags: ["Cultural", "Museum", "Contemporary"],
+      title: "Full Stack Website",
+      description: "KKAssociates CA Firm",
+      image: "/images/portfolio/img1.png",
+      tags: ["FullStack", "MERN", "Dynamic"],
+      type:"portfolio"
     },
     {
       id: 4,
-      title: "Terraform Campus",
-      description: "Educational | Toronto | 2024",
-      image: "/images/campus.jpeg",
-      size: "medium",
-      tags: ["Educational", "Campus", "Sustainable"],
+   title: "Social Media Marketing",      
+      description: "Social Media | Pune | 2024",
+      image: "/images/marketing/social.jpg",
+      tags: ["Social Media", "Marketing", "Branding"],
+      type:"portfolio"
     },
     {
       id: 5,
@@ -55,6 +57,7 @@ const DesignWorkPage = () => {
       image: "/images/pavilion.jpg",
       size: "medium",
       tags: ["Public", "Pavilion", "Urban"],
+      type:"Architecture"
     },
   ];
 

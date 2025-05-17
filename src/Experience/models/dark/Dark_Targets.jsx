@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useToggleRoomStore } from "../../../stores/toggleRoomStore";
 import { useFloatingCardStore } from "../../../stores/floatingCardStore";
 

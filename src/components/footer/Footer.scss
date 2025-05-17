@@ -1,4 +1,38 @@
 @import 'remixicon/fonts/remixicon.css';
+.logo {
+ 
+    position: fixed;
+    top: 0%;
+    left: -8px;
+    z-index: 40;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: 60606;
+    padding: 14px 10px;
+    font-size: 8px;
+    font-weight: lighter;
+
+
+  &.light {
+    color: white;
+    border: 1px solid #060606;
+    background-color: #060606;
+  }
+
+  @media (max-width: 768px) {
+    left: 32px;
+    top: 32px;
+  }
+}
+.logo img {
+
+  height: 83px;
+    width: 157px;
+
+}
 
 .footer {
   position: relative;
@@ -71,12 +105,13 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .footer-tagline {
+   
+  }
+   .footer-tagline {
       font-size: 1rem;
       color: #999;
-      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
     }
-  }
 
   .links-section {
     ul {

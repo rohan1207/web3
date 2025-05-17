@@ -4,6 +4,7 @@ Command: npx gltfjsx@6.5.3 Dark_Targets.glb
 */
 
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom-dom";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {

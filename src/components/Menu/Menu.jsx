@@ -1,5 +1,5 @@
 import "./Menu.scss";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import { useToggleRoomStore } from "../../stores/toggleRoomStore";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";

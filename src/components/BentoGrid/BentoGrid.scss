@@ -44,48 +44,85 @@
       grid-column: span 4;
       grid-row: span 1;
     }
-  }
 
-  .bento-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.8)
-    );
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    color: white;
-
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-
-    p {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-
-    .bento-tags {
+    .bento-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.8)
+      );
+      padding: 1.5rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      color: white;
 
-      .tag {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 0.25rem 0.75rem;
-        border-radius: 1rem;
-        font-size: 0.8rem;
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+      }
+
+      .bento-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        .tag {
+          background: rgba(255, 255, 255, 0.2);
+          padding: 0.25rem 0.75rem;
+          border-radius: 1rem;
+          font-size: 0.8rem;
+        }
+      }
+
+      .explore-button {
+        margin-top: 1rem;
+        padding: 0.5rem 1.5rem;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 2rem;
+        color: white;
+        font-size: 0.9rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        backdrop-filter: blur(4px);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(10px);
+
+        i {
+          font-size: 1.1rem;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.25);
+          border-color: rgba(255, 255, 255, 0.5);
+
+          i {
+            transform: translateX(4px);
+          }
+        }
+      }
+
+      &:hover .explore-button {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }

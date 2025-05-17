@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Overlay.scss";
 import gsap from "gsap";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { usePageTransitionStore } from "../../stores/pageTransitionStore";
 
 const Overlay = () => {

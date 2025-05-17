@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import "./AboutPage.scss";
 import BannerSection from "../../components/BannerSection/BannerSection";
 import { useToggleRoomStore } from "../../stores/toggleRoomStore";
@@ -9,6 +9,7 @@ import Footer from "../../components/footer/Footer";
 const AboutPage = () => {
   const navigate = useNavigate();
   const { isDarkRoom, setDarkRoom } = useToggleRoomStore();
+  const [hoveredMember, setHoveredMember] = useState(null);
 
   useEffect(() => {
     setDarkRoom(true);
@@ -17,35 +18,28 @@ const AboutPage = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Sofia Chen",
-      role: "Founder & Principal Architect",
+      name: "Karan Chaturbhuj",
+      role: "Founder, TheSocialKollab",
+      founder:"UI/UX |Social media | Brand Strategy",
       description:
-        "Award-winning architect with over 20 years of experience in sustainable design.",
-      image: "/images/team1.png",
+        "Creative lead with expertise in UI/UX, photography, videography, and brand strategy. Karan drives the visual and social identity of TheSocialKollab, blending aesthetics with strategy to craft impactful digital experiences.",
+      image: "/images/team1.jpeg",
     },
     {
       id: 2,
-      name: "Marcus Rivera",
-      role: "Design Director",
+      name: "Rohan Ambhore",
+      role: "Full-Stack Web Developer (MERN)",
       description:
-        "Specializes in innovative facade systems and computational design.",
-      image: "/images/team2.png",
+        "Rohan takes charge of the development process, turning ideas into powerful web applications. With strong command over the MERN stack, he ensures every line of code supports performance, scalability, and modern design.",
+      image: "/images/team2.jpg",
     },
     {
       id: 3,
-      name: "Aya Tanaka",
-      role: "Project Manager",
+      name: "Himanshu Lokhande",
+      role: "Full-Stack Developer (MERN)",
       description:
-        "Expert in coordinating complex international projects and client relations.",
-      image: "/images/team3.png",
-    },
-    {
-      id: 4,
-      name: "Lucas Baumann",
-      role: "Sustainability Lead",
-      description:
-        "Focuses on net-zero building strategies and biophilic design principles.",
-      image: "/images/team4.png",
+        "Himanshu specializes in building responsive, dynamic web apps using the MERN stack. From front-end finesse to backend logic, he's a tech craftsman who brings functionality and reliability together.",
+      image: "/images/team3.jpg",
     },
   ];
 
@@ -85,7 +79,7 @@ const AboutPage = () => {
       >
         <BannerSection
           title="About Us"
-          subtitle="Revolutionizing architecture for the AI future"
+          subtitle="konnect | kreate | kollaborate"
           backgroundImage="/images/about.jpg"
         />
       </motion.div>
@@ -102,47 +96,97 @@ const AboutPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7 }}
           >
-          We are more than architects — we are spatial storytellers, shaping environments that inspire, evolve, and endure.
-Founded on the principles of design integrity, functional elegance, and client collaboration, our firm transforms ideas into spaces that speak for themselves. Whether it’s a modern home, a bold commercial space, or a concept yet to be imagined, we bring vision to structure, and purpose to design.
-
-With every project, we blend creativity with precision — crafting experiences in concrete, steel, glass, and light.
+            We are a multidisciplinary team focused on delivering impactful
+            digital experiences through strategic design, robust development,
+            and creative storytelling. At TheSocialKollab, we bring together
+            expertise in UI/UX, full-stack development, and visual content
+            creation to build brands that resonate. Our mission is to help
+            businesses grow through smart design, scalable technology, and
+            compelling digital presence. Collaboration is at the core of what we
+            do—because the best solutions are built together.
           </motion.p>
         </div>
-      </motion.div>
 
-      <motion.section
-        className="team-section"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-      >
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-        >
-          Meet Our Team
-        </motion.h2>
-        <div className="team-grid">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              className="team-member"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 + index * 0.1 }}
-            >
-              <div className="member-image">
-                <img src={member.image} alt={member.name} />
-              </div>
-              <h3>{member.name}</h3>
-              <h4>{member.role}</h4>
-              <p>{member.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-      <Footer />
+        <section className="team-section">
+          <motion.div
+            className="team-grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={member.id}
+                className={`team-member ${
+                  hoveredMember === index ? "hovered" : ""
+                } ${index === teamMembers.length - 1 ? "last-member" : ""}`}
+                onMouseEnter={() => setHoveredMember(index)}
+                onMouseLeave={() => setHoveredMember(null)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.2 * index,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                }}
+              >
+                <div className="member-content">
+                  <motion.div
+                    className="member-image"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20,
+                    }}
+                  >
+                    <img src={member.image} alt={member.name} loading="lazy" />
+                  </motion.div>
+                  <div className="member-preview">
+                    <motion.h3
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.3 * index }}
+                    >
+                      {member.name}
+                    </motion.h3>
+                    <motion.h4
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.4 * index }}
+                    >
+                      {member.role}
+                      <br />
+                      {<span>{member.founder}</span>}
+                    </motion.h4>
+                  </div>
+                  <motion.div
+                    className="member-details"
+                    initial={{ x: 30, opacity: 0 }}
+                    animate={
+                      hoveredMember === index
+                        ? { x: 0, opacity: 1 }
+                        : { x: 30, opacity: 0 }
+                    }
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 25,
+                    }}
+                  >
+                    <h3>{member.name}</h3>
+                    <h4>{member.role}</h4>
+                    <p>{member.description}</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        <Footer />
+      </motion.div>
     </motion.div>
   );
 };

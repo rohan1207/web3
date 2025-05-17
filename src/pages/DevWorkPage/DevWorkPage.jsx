@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./DevWorkPage.scss";
 import BannerSection from "../../components/BannerSection/BannerSection";
@@ -18,43 +18,46 @@ const DevWorkPage = () => {
   const projects = [
     {
       id: 1,
-      title: "Azure Heights Tower",
-      description: "Commercial | Singapore | 2024",
+      title: "Static Architect Website",
+      description: "Azure Heights Tower",
       image: "/images/tower.jpg",
       size: "large",
       tags: ["Commercial", "Architecture", "Modern"],
+      type: "Architecture",
     },
     {
       id: 2,
-      title: "Horizon Residences",
-      description: "Residential | Miami | 2024",
+      title: "3D Architect Website",
+      description: "Horizon Architects",
       image: "/images/residence.jpeg",
       size: "medium",
       tags: ["Residential", "Luxury", "Coastal"],
+      type: "Architecture",
     },
     {
       id: 3,
-      title: "Echo Museum",
-      description: "Cultural | New York | 2024",
-      image: "/images/museum.jpg",
-      size: "medium",
-      tags: ["Cultural", "Museum", "Contemporary"],
+      title: "Full Stack Website",
+      description: "KKAssociates CA Firm",
+      image: "/images/portfolio/img1.png",
+      tags: ["FullStack", "MERN", "Dynamic"],
+      type: "portfolio",
     },
     {
       id: 4,
-      title: "Terraform Campus",
-      description: "Educational | Toronto | 2024",
-      image: "/images/campus.jpeg",
-      size: "medium",
-      tags: ["Educational", "Campus", "Sustainable"],
+      title: "Social Media Marketing",      
+      description: "Social Media | Pune | 2024",
+      image: "/images/marketing/social.jpg",
+      tags: ["Social Media", "Marketing", "Branding"],
+      type: "Marketing",
     },
     {
       id: 5,
-      title: "Solstice Pavilion",
-      description: "Public Space | Vancouver | 2024",
+      title: "Three js Website",
+      description: "Public Space | Interior design | 2024",
       image: "/images/pavilion.jpg",
       size: "medium",
       tags: ["Public", "Pavilion", "Urban"],
+      type: "portfolio",
     },
   ];
 
@@ -106,26 +109,22 @@ const DevWorkPage = () => {
         transition={{ delay: 0.4, duration: 0.6 }}
       >
         <div className="content-wrapper">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            Crafting Tomorrow's Spaces
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7 }}
-          >
-            Every structure tells a story—of space, purpose, and imagination. At{" "}
-            <span className="highlight">TheSocialKollab</span>, our projects are
-            born from bold concepts, shaped by functionality, and finished with
-            timeless detail. Explore our curated selection of residential,
-            commercial, and bespoke architectural works that speak to our
-            passion for form and the future.
-          </motion.p>
-        </div>
+  <motion.h2
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.6 }}
+  >
+    Designing Experiences, Defining Brands
+  </motion.h2>
+  <motion.p
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.7 }}
+  >
+    At <span className="highlight">TheSocialKollab</span>, we don’t just create — we collaborate, innovate, and transform. Our team breathes life into digital identities through intuitive UI/UX design that feels as good as it looks, scroll-stopping social media campaigns that spark engagement, and bold brand strategies that make businesses unforgettable. From concept to code, we develop websites that aren’t just functional — they’re magnetic. Whether you're a startup with a spark or a brand ready to reimagine its presence, we're here to shape stories that connect, resonate, and thrive in a world that's always scrolling.
+  </motion.p>
+</div>
+
       </motion.div>
 
       <motion.div
